@@ -54,10 +54,7 @@ O ambiente foi projetado para permitir, futuramente, a simulação de incidentes
 | PfSense + Snort | VirtualBox (on-premise) | Firewall perimetral, responsável pelo controle de tráfego, NAT e geração de logs de segurança (syslog), com o pacote PfBlocker- NG instalado, enviados ao SIEM, agregado ao IDS Snort como serviço. |
 | Windows Server | AWS (EC2) | Ativo de infraestrutura corporativa simulado, gerando eventos de segurança (Event Logs) coletados pelo SIEM via Universal Forwarder. |
 | Ubuntu Orquestrador Terraform | AWS | Ativo servindo como gerenciador de instâncias em nuvem simulando parte de uma operação DevOps para ativos em cloud, não conectado ao SIEM. |
-
-
 | Ubuntu Orquestrado Terraform | AWS | Ativo servindo como fonte adicional de logs de sistema, permitindo a prática de coleta via Forwarder em ambiente Unix-like. |
-| --- | --- | --- |
 | Kali Linux | VirtualBox (on-premise) | Ativo dedicado à simulação de ataques e testes de segurança controlados. |
 | Splunk Enterprise (SIEM) | AWS (EC2) | Plataforma central de coleta, indexação e correlação de logs, recebendo dados de todos os demais ativos do ambiente para fins de monitoramento e análise de incidentes. |
 
