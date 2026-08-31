@@ -2,39 +2,39 @@
 
 Claudio Henrique Silva
 
-[1. Introdução ............................................................................................ 1](#page-0)
+[1. Introdução ............................................................................................ 1]
 
-[1.1 Propósito do Laboratório ................................................................... 1](#page-0)
+[1.1 Propósito do Laboratório ................................................................... 1]
 
-[1.2 Descrição dos Ativos e Funções no Ambiente ..................................... 1](#page-0)
+[1.2 Descrição dos Ativos e Funções no Ambiente ..................................... 1]
 
-[2. Escopo da Infraestrutura ........................................................................ 2](#page-0)
+[2. Escopo da Infraestrutura ........................................................................ 2]
 
-[2.1 Arquitetura da Rede do Laboratório .................................................... 3](#page-0)
+[2.1 Arquitetura da Rede do Laboratório .................................................... 3]
 
-[3. Instalação e Configuração dos Ativos ...................................................... 4](#page-0)
+[3. Instalação e Configuração dos Ativos ...................................................... 4]
 
-[3.1 Ativos on-premise ............................................................................. 4](#page-0)
+[3.1 Ativos on-premise ............................................................................. 4]
 
-[3.1.1 Pfsense/Snort ............................................................................. 4](#page-0)
+[3.1.1 Pfsense/Snort ............................................................................. 4]
 
-[3.1.2 Kali ............................................................................................ 7](#page-0)
+[3.1.2 Kali ............................................................................................ 7]
 
-[3.2 Ativos em nuvem .............................................................................. 8](#page-0)
+[3.2 Ativos em nuvem .............................................................................. 8]
 
-[3.2.1 Host orquestrador Terraform/Ansible ............................................ 9](#page-0)
+[3.2.1 Host orquestrador Terraform/Ansible ............................................ 9]
 
-[3.2.2 Host orquestrado Terraform/Ansible ........................................... 12](#page-0)
+[3.2.2 Host orquestrado Terraform/Ansible ........................................... 12]
 
-[3.2.3 Windows server ........................................................................ 12](#page-0)
+[3.2.3 Windows server ........................................................................ 12]
 
-[3.2.4 SIEM Splunk ............................................................................. 13](#page-0)
+[3.2.4 SIEM Splunk ............................................................................. 13]
 
-[4. Conclusão .......................................................................................... 14](#page-0)
+[4. Conclusão .......................................................................................... 14]
 
-[4.1 Limitações técnicas ........................................................................ 14](#page-0)
+[4.1 Limitações técnicas ........................................................................ 14]
 
-[4.2 Sugestões de melhorias para o ambiente de laboratório. ................... 14](#page-0)
+[4.2 Sugestões de melhorias para o ambiente de laboratório. ................... 14]
 
 
 ## 1. Introdução
@@ -100,7 +100,7 @@ A instalação do Pfsense se deu através de uma imagem ISO, baseado no sistema 
 
 *Tela da interface do host local Pfsense.*
 
-Foi instalado o pacote PfBlocker-NG que “apresenta um recurso aprimorado de tabela de alias para o software pfSense”3, trazendo relações de IPs maliciosos e outros tipos de regras e recursos pré-definidos, ideal para a ocasião. [URL 🔗](#page-0)
+Foi instalado o pacote PfBlocker-NG que “apresenta um recurso aprimorado de tabela de alias para o software pfSense”3, trazendo relações de IPs maliciosos e outros tipos de regras e recursos pré-definidos, ideal para a ocasião. [URL 🔗]
 
 Ambos os utilitários, Snort e PfBlocker-NG, foram instalados via o menu System > Package Management.
 
