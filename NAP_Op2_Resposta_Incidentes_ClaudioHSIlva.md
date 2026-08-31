@@ -54,7 +54,10 @@ O ambiente foi projetado para permitir, futuramente, a simulação de incidentes
 | PfSense + Snort | VirtualBox (on-premise) | Firewall perimetral, responsável pelo controle de tráfego, NAT e geração de logs de segurança (syslog), com o pacote PfBlocker- NG instalado, enviados ao SIEM, agregado ao IDS Snort como serviço. |
 | Windows Server | AWS (EC2) | Ativo de infraestrutura corporativa simulado, gerando eventos de segurança (Event Logs) coletados pelo SIEM via Universal Forwarder. |
 | Ubuntu Orquestrador Terraform | AWS | Ativo servindo como gerenciador de instâncias em nuvem simulando parte de uma operação DevOps para ativos em cloud, não conectado ao SIEM. |
+
+
 | Ubuntu Orquestrado Terraform | AWS | Ativo servindo como fonte adicional de logs de sistema, permitindo a prática de coleta via Forwarder em ambiente Unix-like. |
+| --- | --- | --- |
 | Kali Linux | VirtualBox (on-premise) | Ativo dedicado à simulação de ataques e testes de segurança controlados. |
 | Splunk Enterprise (SIEM) | AWS (EC2) | Plataforma central de coleta, indexação e correlação de logs, recebendo dados de todos os demais ativos do ambiente para fins de monitoramento e análise de incidentes. |
 
@@ -62,7 +65,7 @@ O ambiente foi projetado para permitir, futuramente, a simulação de incidentes
 
 O laboratório consiste numa infraestrutura híbrida on-premise/cloud pública. O provedor IaaS utilizado foi o AWS Cloud. O serviço de Firewall Pfsense, com o módulo de IDS/IPS Snort implementado e o host virtualizado Kali, foram montados localmente via VirtualBox e operam localmente sobre o fluxo do host físico, um Windows 11. Todo o restante da infraestrutura foi montado no AWS Cloud.
 
-Foi utilizado o Splunk como solução de SIEM numa instancia em nuvem AWS, diferindo ligeiramente no escopo da atividade, porém agregando dificuldade em face da significativa parcela de mercado que os produtos possuem12. [URL 🔗](#page-0)
+Foi utilizado o Splunk como solução de SIEM numa instancia em nuvem AWS, diferindo ligeiramente no escopo da atividade, porém agregando dificuldade em face da significativa parcela de mercado que os produtos possuem12. [URL]()
 
 Agregado a infraestrutura está também uma instância orquestradora do IaC (Infraestrutura como Código) Terraform, munida da solução de automação de TI Ansible. Com este conjunto de soluções DevOps, eu criei um (1) host Ubuntu, hardenizados e conexão com o Splunk configurada via host orquestrador.
 
@@ -77,7 +80,7 @@ No ambiente local todos as interfaces de rede dos ativos locais foram configurad
 
 No AWS Cloud, foi criado uma VPC (Rede Privada Virtual) com o range 172.31.0.0/16, segmentada em duas sub-redes (172.31.32.0/20, 172.31.0.0/20).
 
-
+![alt text](images/subredes.png)
 *Aba ‘sub-redes’ das configurações da VPC utilizada na infraestrutura escopo da atividade.*
 
 Todas as VNICs (Interfaces de Rede Virtual) tiveram atribuídas a si um IP do range 172.31.32.0/20, com exceção do host admin Terraform, que compõe a rede 172.31.0.0. Foram atribuídas as VNIC também um IP e DNS público cuja gestão pertencem ao provedor de serviço em nuvem, porém a conexão entre os ativos se dá via rede privada.
