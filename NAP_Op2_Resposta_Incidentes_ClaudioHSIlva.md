@@ -91,21 +91,26 @@ Todas as VNICs (Interfaces de Rede Virtual) tiveram atribuídas a si um IP do ra
 
 A instalação do Pfsense se deu através de uma imagem ISO, baseado no sistema operacional FreeBSD. Foram configuradas duas interfaces de rede ativa uma no modo Host Only (LAN) e outra no modo Bridged (WAN), conforme mencionado, no intuito de atender aos requisitos da tecnologia. Abaixo segue a evidência da referida máquina virtual criada e suas especificações.
 
-*Tela da interface do VirtualBox com as especificações da máquina virtual do Pfsense nomeada como*
+![alt text](images/vboxpfsense.png)
+*Tela da interface do VirtualBox com as especificações da máquina virtual do Pfsense nomeada como ‘PfSensy’*
 
-*‘PfSensy’*
-
-
+![alt text](images/pfsensebios.png)
 *Tela da interface do host local Pfsense.*
 
-Foi instalado o pacote PfBlocker-NG que “apresenta um recurso aprimorado de tabela de alias para o software pfSense”3, trazendo relações de IPs maliciosos e outros tipos de regras e recursos pré-definidos, ideal para a ocasião. [URL 🔗]
+Foi instalado o pacote PfBlocker-NG que “apresenta um recurso aprimorado de tabela de alias para o software pfSense”3, trazendo relações de IPs maliciosos e outros tipos de regras e recursos pré-definidos, ideal para a ocasião.
+
+
 
 Ambos os utilitários, Snort e PfBlocker-NG, foram instalados via o menu System > Package Management.
 
+![alt text](images/pfblockerng.png)
 *Menu Firewall > PfBlocker-NG evidenciando o pacote instalado.*
 
 
 Tanto o PfSense (com os recursos do PfBlocker-NG) como o Snort no modo IDS, operam somente sobre a rede LAN.
+
+![alt text](images/fwrules.png)
+![alt text](images/snortinterfaces.png)
 
 Menu Firewall > Rules e Services > Snort evidenciando quais interfaces estão sendo monitoradas pelas soluções.
 
