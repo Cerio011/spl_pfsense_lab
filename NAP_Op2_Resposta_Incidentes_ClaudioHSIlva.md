@@ -116,15 +116,14 @@ Menu Firewall > Rules e Services > Snort evidenciando quais interfaces estão se
 
 Duas regras de IDS para alertar o uso do protocolo ICMP, uma para cada interface, foram configuradas no intuito de gerar volumetria para testes e coleta de evidência.
 
-*Menu Services > Snort > LAN Rules evidenciando a regra de IDS aplicada sobre as interfaces cobertas pelo*
-
-*Snort.*
+![alt text](images/snortinterfacessettings.png)
+*Menu Services > Snort > LAN Rules evidenciando a regra de IDS aplicada sobre as interfaces cobertas pelo Snort.*
 
 
 ## 3.1.2 Kali
 
 Abaixo está a evidência da máquina virtual criada com o Kali, para fim de realização dos requisitos da atividade e conveniência para testes e estudos contínuos. Não se pretende incluir a máquina Kali na gerência do SIEM.
-
+![alt text](images/kali.png)
 
 ## 3.2 Ativos em nuvem
 
