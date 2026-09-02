@@ -62,7 +62,7 @@ O ambiente foi projetado para permitir, futuramente, a simulação de incidentes
 
 O laboratório consiste numa infraestrutura híbrida on-premise/cloud pública. O provedor IaaS utilizado foi o AWS Cloud. O serviço de Firewall Pfsense, com o módulo de IDS/IPS Snort implementado e o host virtualizado Kali, foram montados localmente via VirtualBox e operam localmente sobre o fluxo do host físico, um Windows 11. Todo o restante da infraestrutura foi montado no AWS Cloud.
 
-Foi utilizado o Splunk como solução de SIEM numa instancia em nuvem AWS, diferindo ligeiramente no escopo da atividade, porém agregando dificuldade em face da significativa parcela de mercado que os produtos possuem12. [URL]()
+Foi utilizado o Splunk como solução de SIEM numa instancia em nuvem AWS, diferindo ligeiramente no escopo da atividade, porém agregando dificuldade em face da significativa parcela de mercado que os produtos possuem.
 
 Agregado a infraestrutura está também uma instância orquestradora do IaC (Infraestrutura como Código) Terraform, munida da solução de automação de TI Ansible. Com este conjunto de soluções DevOps, eu criei um (1) host Ubuntu, hardenizados e conexão com o Splunk configurada via host orquestrador.
 
@@ -129,25 +129,26 @@ Abaixo está a evidência da máquina virtual criada com o Kali, para fim de rea
 ## 3.2 Ativos em nuvem
 
 Abaixo vemos a relação de todas as instâncias EC2 na AWS Cloud criadas para o fim da realização da atividade.
-
+![alt text](images/awsinstec2.png)
+![alt text](images/awskey.png)
 Todos as instâncias em nuvem tiveram o mesmo par de chaves RSA “kelly_pair_key" atribuído a si portanto a mesma chave privada é utilizada para conexão remota a todos os ativos mencionados.
 
 ## 3.2.1 Host orquestrador Terraform/Ansible
 
 Abaixo segue a evidência de um host Ubuntu, com a solução de IaC Terraform e a de automação de TI Ansible. O host está nomeado como terraf_admin na primeira imagem desta seção.
+![alt text](images/inst_admintf.png)
 
-
-A imagem mostra uma conexão SSH com o terminal do host orquestrador Terraform evidenciando a versão do
-
-próprio SO, do Ansible e do Terraform instalados.
+A imagem mostra uma conexão SSH com o terminal do host orquestrador Terraform evidenciando a versão do próprio SO, do Ansible e do Terraform instalados.
+![alt text](images/inst_admintf2.png)
 
 A seguir está a evidência extraída via VS Code o editor de código fonte desenvolvido pela Microsoft, de que o host apontado como gerenciado está na relação de objetos orquestrados pelo Terraform, nomeado como lab_ec2, instância presente na primeira imagem da seção.
-
+![alt text](images/inst_admintf3.png)
 
 O comando “terraform state show nome_da_instancia” exibe o status do host gerenciado e comprova a operação.
-
+![alt text](images/inst_admintf4.png)
 
 Abaixo está a evidência do playbook Ansible que garante a conexão do host orquestrado como o Splunk consultado via VS Code.
+![alt text](images/inst_admintf5.png)
 
 ## 3.2.2 Host orquestrado Terraform/Ansible
 
