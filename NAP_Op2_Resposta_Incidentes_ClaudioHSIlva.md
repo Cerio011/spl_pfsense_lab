@@ -124,6 +124,7 @@ Duas regras de IDS para alertar o uso do protocolo ICMP, uma para cada interface
 
 Abaixo está a evidência da máquina virtual criada com o Kali, para fim de realização dos requisitos da atividade e conveniência para testes e estudos contínuos. Não se pretende incluir a máquina Kali na gerência do SIEM.
 ![alt text](images/kali.png)
+![alt text](images/kalili.png)
 
 ## 3.2 Ativos em nuvem
 
