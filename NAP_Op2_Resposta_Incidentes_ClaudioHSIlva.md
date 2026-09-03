@@ -77,8 +77,10 @@ Também compõe a infraestrutura um (1) host Windows Server criado individualmen
 No ambiente local todos as interfaces de rede dos ativos locais foram configuradas com o modo Bridged na rede local com o adendo de uma segunda placa de rede no modo Host Only para host do Pfsense, necessário para seu pleno funcionamento.
 
 No AWS Cloud, foi criado uma VPC (Rede Privada Virtual) com o range 172.31.0.0/16, segmentada em duas sub-redes (172.31.32.0/20, 172.31.0.0/20).
+
 ![alt text](images/vpc.png)
 ![alt text](images/subredes.png)
+
 *Aba ‘sub-redes’ das configurações da VPC utilizada na infraestrutura escopo da atividade.*
 
 Todas as VNICs (Interfaces de Rede Virtual) tiveram atribuídas a si um IP do range 172.31.32.0/20, com exceção do host admin Terraform, que compõe a rede 172.31.0.0. Foram atribuídas as VNIC também um IP e DNS público cuja gestão pertencem ao provedor de serviço em nuvem, porém a conexão entre os ativos se dá via rede privada.
@@ -92,9 +94,11 @@ Todas as VNICs (Interfaces de Rede Virtual) tiveram atribuídas a si um IP do ra
 A instalação do Pfsense se deu através de uma imagem ISO, baseado no sistema operacional FreeBSD. Foram configuradas duas interfaces de rede ativa uma no modo Host Only (LAN) e outra no modo Bridged (WAN), conforme mencionado, no intuito de atender aos requisitos da tecnologia. Abaixo segue a evidência da referida máquina virtual criada e suas especificações.
 
 ![alt text](images/vboxpfsense.png)
+
 *Tela da interface do VirtualBox com as especificações da máquina virtual do Pfsense nomeada como ‘PfSensy’*
 
 ![alt text](images/pfsensebios.png)
+
 *Tela da interface do host local Pfsense.*
 
 Foi instalado o pacote PfBlocker-NG que “apresenta um recurso aprimorado de tabela de alias para o software pfSense”3, trazendo relações de IPs maliciosos e outros tipos de regras e recursos pré-definidos, ideal para a ocasião.
@@ -104,6 +108,7 @@ Foi instalado o pacote PfBlocker-NG que “apresenta um recurso aprimorado de ta
 Ambos os utilitários, Snort e PfBlocker-NG, foram instalados via o menu System > Package Management.
 
 ![alt text](images/pfblockerng.png)
+
 *Menu Firewall > PfBlocker-NG evidenciando o pacote instalado.*
 
 
@@ -117,6 +122,7 @@ Menu Firewall > Rules e Services > Snort evidenciando quais interfaces estão se
 Duas regras de IDS para alertar o uso do protocolo ICMP, uma para cada interface, foram configuradas no intuito de gerar volumetria para testes e coleta de evidência.
 
 ![alt text](images/snortinterfacessettings.png)
+
 *Menu Services > Snort > LAN Rules evidenciando a regra de IDS aplicada sobre as interfaces cobertas pelo Snort.*
 
 
@@ -148,6 +154,7 @@ O comando “terraform state show nome_da_instancia” exibe o status do host ge
 ![alt text](images/inst_admintf4.png)
 
 Abaixo está a evidência do playbook Ansible que garante a conexão do host orquestrado como o Splunk consultado via VS Code.
+
 ![alt text](images/inst_admintf5.png)
 
 ## 3.2.2 Host orquestrado Terraform/Ansible
