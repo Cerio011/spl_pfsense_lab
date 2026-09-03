@@ -78,7 +78,8 @@ No ambiente local todos as interfaces de rede dos ativos locais foram configurad
 
 No AWS Cloud, foi criado uma VPC (Rede Privada Virtual) com o range 172.31.0.0/16, segmentada em duas sub-redes (172.31.32.0/20, 172.31.0.0/20).
 
-![alt text](images/vpc.png)
+![alt text](images/vpc.png) 
+
 ![alt text](images/subredes.png)
 
 *Aba ‘sub-redes’ das configurações da VPC utilizada na infraestrutura escopo da atividade.*
