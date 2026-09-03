@@ -146,6 +146,7 @@ Abaixo segue a evidência de um host Ubuntu, com a solução de IaC Terraform e 
 ![alt text](images/inst_admintf.png)
 
 A imagem mostra uma conexão SSH com o terminal do host orquestrador Terraform evidenciando a versão do próprio SO, do Ansible e do Terraform instalados.
+
 ![alt text](images/inst_admintf2.png)
 
 A seguir está a evidência extraída via VS Code o editor de código fonte desenvolvido pela Microsoft, de que o host apontado como gerenciado está na relação de objetos orquestrados pelo Terraform, nomeado como lab_ec2, instância presente na primeira imagem da seção.
