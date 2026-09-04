@@ -187,6 +187,8 @@ O Add-on do Pfsense foi instalado com a finalidade de refinar o parsing da solu�
 
 Seguem também as evidências relacionadas ao Windows Server e o host ubuntu gerenciado via Terraform/Ansible conforme mencionado.
 
+![alt text](images/image24.png)
+![alt text](images/image25.png)
 
 ## 4. Conclusão
 
