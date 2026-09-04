@@ -1,0 +1,2 @@
+splunk_indexer_ip: "18.218.69.70"   # IP do seu indexer na EC2
+splunk_admin_password: "Jardani@90"

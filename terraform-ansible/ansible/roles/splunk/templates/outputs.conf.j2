@@ -1,0 +1,6 @@
+[tcpout]
+defaultGroup = indexers
+
+[tcpout:indexers]
+server = {{ splunk_indexer_ip }}:9997
+compressed = true

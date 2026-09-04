@@ -1,0 +1,127 @@
+---
+# Atualizacao do sistema
+- name: Atualizar cache de pacotes
+  apt:
+    update_cache: true
+    cache_valid_time: 3600
+
+- name: Atualizar todos os pacotes
+  apt:
+    upgrade: dist
+
+- name: Instalar pacotes essenciais de seguranca
+  apt:
+    name:
+      - fail2ban
+      - ufw
+      - unattended-upgrades
+      - auditd
+      - libpam-pwquality
+    state: present
+
+# Hardening de SSH
+- name: Desabilitar login root via SSH
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?PermitRootLogin'
+    line: 'PermitRootLogin no'
+  notify: restart sshd
+
+- name: Desabilitar autenticacao por senha (somente chave)
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?PasswordAuthentication'
+    line: 'PasswordAuthentication no'
+  notify: restart sshd
+
+- name: Definir MaxAuthTries
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?MaxAuthTries'
+    line: 'MaxAuthTries 3'
+  notify: restart sshd
+
+- name: Desabilitar login com X11 forwarding
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?X11Forwarding'
+    line: 'X11Forwarding no'
+  notify: restart sshd
+
+# Firewall (UFW)
+- name: Permitir SSH no UFW
+  ufw:
+    rule: allow
+    port: '22'
+    proto: tcp
+
+- name: Definir politica padrao de negacao de entrada
+  ufw:
+    direction: incoming
+    policy: deny
+
+- name: Definir politica padrao de permissao de saida
+  ufw:
+    direction: outgoing
+    policy: allow
+
+- name: Habilitar UFW
+  ufw:
+    state: enabled
+
+# Fail2ban
+- name: Garantir que fail2ban esteja ativo e habilitado
+  service:
+    name: fail2ban
+    state: started
+    enabled: true
+
+# Auditd
+- name: Garantir que auditd esteja ativo e habilitado
+  service:
+    name: auditd
+    state: started
+    enabled: true
+
+# Atualizacoes automaticas de seguranca
+- name: Habilitar unattended-upgrades
+  service:
+    name: unattended-upgrades
+    state: started
+    enabled: true
+
+# Politica de senha
+- name: Exigir complexidade minima de senha (pwquality)
+  lineinfile:
+    path: /etc/security/pwquality.conf
+    regexp: '^# minlen'
+    line: 'minlen = 12'
+
+# Kernel hardening basico (sysctl)
+- name: Desabilitar IP forwarding
+  sysctl:
+    name: net.ipv4.ip_forward
+    value: '0'
+    state: present
+    reload: true
+
+- name: Desabilitar redirecoes ICMP (protecao contra MITM)
+  sysctl:
+    name: net.ipv4.conf.all.accept_redirects
+    value: '0'
+    state: present
+    reload: true
+
+- name: Ativar protecao contra IP spoofing
+  sysctl:
+    name: net.ipv4.conf.all.rp_filter
+    value: '1'
+    state: present
+    reload: true
+
+- name: Desabilitar aceitacao de pacotes com source routing
+  sysctl:
+    name: net.ipv4.conf.all.accept_source_route
+    value: '0'
+    state: present
+    reload: true

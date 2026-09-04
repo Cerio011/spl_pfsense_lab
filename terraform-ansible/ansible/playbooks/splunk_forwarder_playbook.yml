@@ -1,0 +1,8 @@
+---
+- name: Instalar e configurar Splunk Universal Forwarder
+  hosts: lab_servers
+  become: true
+  gather_facts: true
+
+  roles:
+    - splunk
