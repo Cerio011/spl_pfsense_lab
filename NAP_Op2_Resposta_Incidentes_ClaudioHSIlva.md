@@ -160,6 +160,7 @@ Abaixo está a evidência do playbook Ansible que garante a conexão do host orq
 ![alt text](images/inst_admintf5.png)
 
 ## 3.2.2 Host orquestrado Terraform/Ansible
+![alt text](images/hostorquestradotf.png)
 
 Acima vemos a evidência do host gerenciado Ubuntu, acessado via conexão SSH no Putty com o Splunk Universal Forwarder instalado e ativo, consultado sua versão (splunk version) e status (splunk status).
 
@@ -168,15 +169,19 @@ Acima vemos a evidência do host gerenciado Ubuntu, acessado via conexão SSH no
 
 As evidências do servidor Windows, nomeado WIN-AD01, com o Splunk Universal Forward instalado e funcional estão abaixo.
 
+![alt text](images/winserver.png)
 
 ## 3.2.4 SIEM Splunk
 
 Estas são as evidências da instância AWS com o Splunk instalado e as informações acerca do software.
 
+![alt text](images/splunkabout.png)
 
 Esta seção cobre as evidências acerca do SIEM Splunk e a devida conexão com os ativos cobertos: WinServer, Pfsense e o host gerenciado via Terraform Ubuntu.
 
 Abaixo está a evidência que cremos ser central, a respeito da receptação dos logs relacionados ao Pfsense/Snort.
+
+![alt text](images/splunkpfsense.png)
 
 O Add-on do Pfsense foi instalado com a finalidade de refinar o parsing da solução sobre os eventos do Pfsense e seus módulos internos em sourcetypes derivados (ex. pfsense:snort). Muito troubleshooting foi aplicado, porém sem resultado. Dessa forma o efeito está sendo reportado como uma limitação técnica encontrada.
 
