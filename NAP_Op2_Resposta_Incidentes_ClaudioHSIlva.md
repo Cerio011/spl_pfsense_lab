@@ -194,7 +194,9 @@ Seguem também as evidências relacionadas ao Windows Server e o host ubuntu ger
 
 ## 4.1 Limitações técnicas
 
-Um add-on (https://github.com/barakat-abweh/TA-pfsense) foi instalado no intuito de normalização dos eventos, porém o efeito desejado não foi observado. Muito trobleshooting foi aplicado para resolução da questão, porém sem efeito. Abaixo está a evidência do add-on instalado no Splunk. [URL 🔗](https://github.com/barakat-abweh/TA-pfsense)
+Um add-on (https://github.com/barakat-abweh/TA-pfsense) foi instalado no intuito de normalização dos eventos, porém o efeito desejado não foi observado. Muito trobleshooting foi aplicado para resolução da questão, porém sem efeito. Abaixo está a evidência do add-on instalado no Splunk. 
+
+![alt text](images/image26.png)
 
 
 ## 4.2 Sugestões de melhorias para o ambiente de laboratório.
